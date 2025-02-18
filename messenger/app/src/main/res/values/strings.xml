@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">messenger</string>
+    <string name="chats">Чаты</string>
+    <string name="chat">Чат</string>
+    <string name="contact">Контакты</string>
+    <string name="setting">Настройки</string>
+
+</resources>
