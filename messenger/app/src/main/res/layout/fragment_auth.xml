@@ -7,9 +7,6 @@
     tools:context=".AuthFragment"
     >
 
-    <!-- TabLayout -->
-
-    <!-- ViewPager2 -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="0dp"
