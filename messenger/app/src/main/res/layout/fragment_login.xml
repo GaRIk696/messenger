@@ -11,17 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="@string/loginE"
-        tools:layout_editor_absoluteY="27dp"
-        tools:ignore="MissingConstraints"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/Password"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/Password"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="20dp"
         android:hint="@string/password"
-        app:layout_constraintTop_toBottomOf="@+id/Login" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/AuthButton"

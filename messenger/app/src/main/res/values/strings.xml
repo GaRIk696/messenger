@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">messenger</string>
     <string name="chats">Перейти в чат</string>
+    <string name="chats1">Чаты</string>
     <string name="chat">Перейти в чаты</string>
     <string name="contact">Контакты</string>
     <string name="setting">Настройки</string>
@@ -11,4 +12,5 @@
     <string name="loginE">Login</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="dark_themes">Темная тема</string>
 </resources>
