@@ -1,21 +1,21 @@
-package com.messenger.messenger.auth
+package com.messenger.messenger.contacts.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.messenger.messenger.databinding.FragmentLoginBinding
+import com.messenger.messenger.databinding.FragmentContactsBinding
 
-class LoginFragment : Fragment() {
-    private var _binding: FragmentLoginBinding? = null
+class ContactsFragment : Fragment() {
+    private var _binding: FragmentContactsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentContactsBinding.inflate(inflater, container, false)
         return binding.root
 
     }

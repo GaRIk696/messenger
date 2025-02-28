@@ -1,4 +1,4 @@
-package com.messenger.messenger.auth
+package com.messenger.messenger.auth.ui
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

@@ -1,4 +1,4 @@
-package com.messenger.messenger
+package com.messenger.messenger.settings.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package root
+package com.messenger.messenger.root.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
