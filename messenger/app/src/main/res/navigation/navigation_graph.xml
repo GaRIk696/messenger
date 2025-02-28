@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/authFragment">
+    app:startDestination="@id/settingsFragment">
     <fragment
         android:id="@+id/chatsFragment"
         android:name="com.messenger.messenger.ChatsFragment"
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.messenger.messenger.AuthFragment"
+        android:name="com.messenger.messenger.auth.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" >
         <action
@@ -47,12 +47,12 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.messenger.messenger.RegisterFragment"
+        android:name="com.messenger.messenger.auth.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.messenger.messenger.LoginFragment"
+        android:name="com.messenger.messenger.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
 </navigation>

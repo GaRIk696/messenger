@@ -1,4 +1,4 @@
-package com.messenger.messenger
+package com.messenger.messenger.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
