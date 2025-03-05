@@ -14,15 +14,55 @@
         app:layout_constraintBottom_toTopOf="@+id/Password"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/loginError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/Password"
+        app:layout_constraintStart_toStartOf="@id/Login"
+        app:layout_constraintTop_toBottomOf="@id/Login" />
+
     <EditText
         android:id="@+id/Password"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="@string/password"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/passwordError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/loginOrPasswordError"
+        app:layout_constraintStart_toStartOf="@id/Password"
+        app:layout_constraintTop_toBottomOf="@id/Password" />
+
+    <TextView
+        android:id="@+id/loginOrPasswordError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text=""
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/AuthButton"
+        app:layout_constraintStart_toStartOf="@id/Password"
+        app:layout_constraintTop_toBottomOf="@id/passwordError" />
 
     <Button
         android:id="@+id/AuthButton"

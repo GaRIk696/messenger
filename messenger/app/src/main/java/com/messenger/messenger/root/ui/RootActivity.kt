@@ -2,12 +2,15 @@ package com.messenger.messenger.root.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isVisible
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.messenger.messenger.R
 import com.messenger.messenger.databinding.ActivityRootBinding
+import com.messenger.messenger.libs.ThemeManager
+import com.messenger.messenger.libs.TokenManager
 
 class RootActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRootBinding
@@ -19,6 +22,19 @@ class RootActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
         val navController = navHostFragment.navController
+
+        if (savedInstanceState == null && TokenManager.getToken(this) != null){
+            navController.navigate(R.id.action_authFragment_to_chatsFragment)
+        }
+
+        if (savedInstanceState == null){
+            if (ThemeManager.getTheme(this)){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
 
         binding.bottomNavigationView.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, navDestination: NavDestination, _ ->

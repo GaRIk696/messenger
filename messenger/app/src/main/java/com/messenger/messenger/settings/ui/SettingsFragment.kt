@@ -6,11 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.google.android.material.switchmaterial.SwitchMaterial
+import androidx.navigation.fragment.findNavController
+import com.messenger.messenger.data.RetrofitClient
+import com.messenger.messenger.data.models.UserResponse
 import com.messenger.messenger.databinding.FragmentSettingsBinding
+import com.messenger.messenger.libs.ThemeManager
+import com.messenger.messenger.libs.TokenManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SettingsFragment : Fragment() {
-
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
@@ -25,22 +31,62 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val themeSwitcher: SwitchMaterial = binding.themeSwitcher
+        RetrofitClient.create(requireContext(), view).getUser().enqueue(
+            object :
+                Callback<UserResponse> {
+                override fun onResponse(
+                    call: Call<UserResponse>,
+                    response: Response<UserResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        response.body()?.name.let { name ->
+                            binding.user.text = name
+                        }
+                    }
+                }
 
-        val currentNightMode = AppCompatDelegate.getDefaultNightMode()
-        themeSwitcher.isChecked = currentNightMode == AppCompatDelegate.MODE_NIGHT_YES
+                override fun onFailure(p0: Call<UserResponse?>, p1: Throwable) {
+                }
+            })
 
-        themeSwitcher.setOnCheckedChangeListener { _, isChecked ->
+        binding.themeSwitcher.isChecked = ThemeManager.getTheme(requireContext())
+        binding.themeSwitcher.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                setDarkTheme()
             } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                setLightTheme()
             }
+            ThemeManager.saveTheme(requireContext(), isChecked)
+        }
+
+        binding.logout.setOnClickListener {
+            RetrofitClient.create(requireContext(), view).logout().enqueue(
+                object :
+                    Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
+                            TokenManager.clearToken(requireContext())
+                            findNavController().navigate(com.messenger.messenger.R.id.action_settingsFragment_to_authFragment)
+                        } else {
+                        }
+                    }
+
+                    override fun onFailure(p0: Call<Void?>, p1: Throwable) {
+                    }
+                })
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setDarkTheme() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    }
+
+    private fun setLightTheme() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
