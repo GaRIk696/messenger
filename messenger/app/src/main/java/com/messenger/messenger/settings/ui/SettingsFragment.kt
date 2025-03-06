@@ -28,27 +28,28 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        RetrofitClient.create(requireContext(), view).getUser().enqueue(
-            object :
-                Callback<UserResponse> {
-                override fun onResponse(
-                    call: Call<UserResponse>,
-                    response: Response<UserResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        response.body()?.name.let { name ->
-                            binding.user.text = name
+        if (savedInstanceState == null) {
+            RetrofitClient.create(requireContext(), view).getUser().enqueue(
+                object :
+                    Callback<UserResponse> {
+                    override fun onResponse(
+                        call: Call<UserResponse>,
+                        response: Response<UserResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            response.body()?.name.let { name ->
+                                binding.user.text = name
+                            }
                         }
                     }
-                }
 
-                override fun onFailure(p0: Call<UserResponse?>, p1: Throwable) {
-                }
-            })
-
+                    override fun onFailure(p0: Call<UserResponse?>, p1: Throwable) {
+                    }
+                })
+        }
         binding.themeSwitcher.isChecked = ThemeManager.getTheme(requireContext())
         binding.themeSwitcher.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
