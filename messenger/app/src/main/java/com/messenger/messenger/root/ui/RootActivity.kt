@@ -40,8 +40,9 @@ class RootActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, navDestination: NavDestination, _ ->
             if (navDestination.id == R.id.authFragment){
                 binding.bottomNavigationView.isVisible = false
-            }
-            else {
+            } else if (navDestination.id == R.id.chatFragment){
+                binding.bottomNavigationView.isVisible = false
+            } else {
                 binding.bottomNavigationView.isVisible = true
             }
 
