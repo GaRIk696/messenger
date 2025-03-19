@@ -1,20 +1,30 @@
 package com.messenger.messenger.contacts.ui.view_models
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.messenger.messenger.data.ApiService
+import com.messenger.messenger.data.models.ContactResponse
 
-class ContactsViewModel(val apiService: ApiService): ViewModel() {
+class ContactsViewModel(private val apiService: ApiService) : ViewModel() {
+
+    private val _contacts = MutableLiveData<List<ContactResponse>>()
+    val contacts: LiveData<List<ContactResponse>> get() = _contacts
+
+    fun updateContacts(newContactsList: List<ContactResponse>) {
+        _contacts.value = newContactsList
+    }
 
     companion object {
-        fun getViewModelFactory(apiService: ApiService): ViewModelProvider.Factory =
-            viewModelFactory {
-                initializer {
-                    ContactsViewModel(
-                        apiService = apiService
-                    )
-                }
-            }}
+        fun getViewModelFactory(apiService: ApiService): ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                ContactsViewModel(
+                    apiService = apiService
+                )
+            }
+        }
+    }
 }

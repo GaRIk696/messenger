@@ -13,4 +13,6 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="dark_themes">Темная тема</string>
+    <string name="dialog_confirmation">Are you sure?</string>
+    <string name="ok">OK</string>
 </resources>
