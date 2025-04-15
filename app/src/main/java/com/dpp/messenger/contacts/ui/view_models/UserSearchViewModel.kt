@@ -10,44 +10,43 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.dpp.messenger.data.ApiService
 import com.dpp.messenger.data.models.UserResponse
 import com.dpp.messenger.libs.debounce
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.dpp.messenger.libs.handleRequest
+import kotlinx.coroutines.launch
 
-class UserSearchViewModel(private  val apiService: ApiService) : ViewModel() {
+class UserSearchViewModel(private val apiService: ApiService) : ViewModel() {
     private val _users = MutableLiveData<List<UserResponse>>()
-    val users : LiveData<List<UserResponse>> get() =_users
+    val users: LiveData<List<UserResponse>> get() = _users
 
     private val _error = MutableLiveData<String?>()
-    val error: LiveData<String?> get()=_error
+    val error: LiveData<String?> get() = _error
 
     val searchUsers: (String) -> Unit = debounce(300L, viewModelScope, this::onUsersSearch)
     private fun onUsersSearch(query: String) {
-        apiService.userSearch(query).enqueue(object : Callback<List<UserResponse>> {
-            override fun onResponse(call: Call<List<UserResponse>>, response: Response<List<UserResponse>>) {
-                if (response.isSuccessful) {
+        viewModelScope.launch {
 
-                    _users.value = response.body()
-                    _error.value = null
-                } else {
+            val response = handleRequest {
+                apiService.userSearch(query)
+            }
 
-                    _error.value = "Ошибка при поиске пользователей: ${response.errorBody()?.string()}"
+            when (response.code()) {
+                200 -> {
+
+                }
+                -1 -> {
+                    
                 }
             }
-
-            override fun onFailure(call: Call<List<UserResponse>>, t: Throwable) {
-
-                _error.value = "Ошибка сети: ${t.message}"
-            }
-        })
-    }
-    companion object {
-        fun getViewModelFactory(apiService: ApiService): ViewModelProvider.Factory= viewModelFactory {
-            initializer {
-                UserSearchViewModel(
-                    apiService=apiService
-                )
-            }
         }
+    }
+
+    companion object {
+        fun getViewModelFactory(apiService: ApiService): ViewModelProvider.Factory =
+            viewModelFactory {
+                initializer {
+                    UserSearchViewModel(
+                        apiService = apiService
+                    )
+                }
+            }
     }
 }

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.dpp.messenger.contacts.ui.adapters.UserSearchAdapter
 import com.dpp.messenger.contacts.ui.view_models.UserSearchViewModel
 import com.dpp.messenger.data.RetrofitClient
 import com.dpp.messenger.databinding.DialogUserSearchBinding
@@ -21,6 +23,8 @@ class UserSearchDialogFragment : DialogFragment() {
     }
 
     private lateinit var binding: DialogUserSearchBinding
+    private lateinit var adapter: UserSearchAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,8 +37,21 @@ class UserSearchDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.users.observe(viewLifecycleOwner) {users ->
+        adapter = UserSearchAdapter(
+            onClick = { contact -> }
+        )
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = adapter
+
+        viewModel.searchUsers("")
+
+        viewModel.users.observe(viewLifecycleOwner) { users ->
+            adapter.setContacts(users)
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
 
         }
     }
+
 }

@@ -17,12 +17,14 @@ import com.dpp.messenger.databinding.FragmentContactsBinding
 class ContactsFragment : Fragment() {
     private var _binding: FragmentContactsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var contactsAdapter: ContactsAdapter
     private val apiService by lazy {
         RetrofitClient.create(requireContext(), view)
     }
     private val viewModel by viewModels<ContactsViewModel> {
         ContactsViewModel.getViewModelFactory(apiService)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,26 +33,22 @@ class ContactsFragment : Fragment() {
         return binding.root
     }
 
-    private lateinit var contactsAdapter: ContactsAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.contacts.observe(viewLifecycleOwner) { contacts ->
+        contactsAdapter = ContactsAdapter { contact ->
+            Log.i("test", "контакт ${contact.name} был нажат")
         }
-        viewModel.updateContacts(emptyList())
+        binding.rvSearchResults.adapter = contactsAdapter
+
+        viewModel.contacts.observe(viewLifecycleOwner) { contacts ->
+            contactsAdapter.setContacts(contacts)
+        }
 
         binding.fabAddContact.setOnClickListener {
             ConfirmationDialogFragment().show(childFragmentManager, "ConfirmationDialog")
         }
 
-        contactsAdapter = ContactsAdapter { contact -> Log.i("test", "контакт ${contact.name} был нажат")
-        }
-
-        binding.rvSearchResults.adapter = contactsAdapter
-
-        val contacts = listOf<ContactResponse>()
-
-        contactsAdapter.setContacts(contacts)
     }
 
     override fun onDestroyView() {
