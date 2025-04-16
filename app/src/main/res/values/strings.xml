@@ -15,4 +15,6 @@
     <string name="dark_themes">Темная тема</string>
     <string name="dialog_confirmation">Are you sure?</string>
     <string name="ok">OK</string>
+    <string name="user_avatar">User avatar</string>
+    <string name="search_users">Search users…</string>
 </resources>

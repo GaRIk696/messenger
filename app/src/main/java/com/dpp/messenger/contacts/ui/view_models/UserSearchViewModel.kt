@@ -30,7 +30,7 @@ class UserSearchViewModel(private val apiService: ApiService) : ViewModel() {
 
             when (response.code()) {
                 200 -> {
-
+                    _users.value = response.body()!!
                 }
                 -1 -> {
                     

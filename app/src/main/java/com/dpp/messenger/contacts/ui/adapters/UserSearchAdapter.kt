@@ -23,8 +23,6 @@ class UserSearchAdapter(private val onClick: (UserResponse) -> Unit) :
         notifyDataSetChanged()
     }
 
-    private val contactResponses = mutableListOf<UserResponse>()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val binding = ItemContactBinding.inflate(
@@ -38,14 +36,14 @@ class UserSearchAdapter(private val onClick: (UserResponse) -> Unit) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         with(holder.binding) {
-            txtName.text = contactResponses[position].name
+            txtName.text = filteredContacts[position].name
 //            txtLogin.text = contactResponses[position].login
 
             root.setOnClickListener {
-                onClick(contactResponses[position])
+                onClick(filteredContacts[position])
             }
         }
     }
 
-    override fun getItemCount() = contactResponses.size
+    override fun getItemCount() = filteredContacts.size
 }

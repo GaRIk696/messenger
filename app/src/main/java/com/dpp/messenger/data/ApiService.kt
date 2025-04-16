@@ -33,7 +33,7 @@ interface ApiService {
     suspend fun getContacts(): Response<List<ContactResponse>>
 
     @GET("/users/search")
-    suspend fun userSearch(@Query("search") search: String): Response<UserResponse>
+    suspend fun userSearch(@Query("search") search: String): Response<List<UserResponse>>
 
     @Multipart
     @PATCH("/users/update/avatar")
