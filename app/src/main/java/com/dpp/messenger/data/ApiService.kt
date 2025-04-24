@@ -38,4 +38,5 @@ interface ApiService {
     @Multipart
     @PATCH("/users/update/avatar")
     suspend fun updateAvatar(@Part file: MultipartBody.Part): Response<String>
+
 }

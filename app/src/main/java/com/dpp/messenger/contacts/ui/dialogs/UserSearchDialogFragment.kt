@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,6 +48,13 @@ class UserSearchDialogFragment : DialogFragment() {
         binding.recyclerView.adapter = adapter
 
         viewModel.searchUsers("")
+        binding.searchEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?) = false
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.searchUsers(newText.toString())
+                return true
+            }
+        })
 
         viewModel.users.observe(viewLifecycleOwner) { users ->
             adapter.setContacts(users)
@@ -55,6 +63,9 @@ class UserSearchDialogFragment : DialogFragment() {
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
 
         }
+
+
+
     }
 
 }

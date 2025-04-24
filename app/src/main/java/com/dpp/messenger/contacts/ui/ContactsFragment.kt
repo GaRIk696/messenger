@@ -9,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dpp.messenger.contacts.ui.adapters.ContactsAdapter
 import com.dpp.messenger.contacts.ui.dialogs.UserSearchDialogFragment
-import com.dpp.messenger.contacts.ui.view_models.ConfirmationDialogFragment
 import com.dpp.messenger.contacts.ui.view_models.ContactsViewModel
 import com.dpp.messenger.data.RetrofitClient
-import com.dpp.messenger.data.models.ContactResponse
 import com.dpp.messenger.databinding.FragmentContactsBinding
 
 class ContactsFragment : Fragment() {
@@ -50,6 +48,8 @@ class ContactsFragment : Fragment() {
             UserSearchDialogFragment().show(childFragmentManager, "ConfirmationDialog")
         }
 
+        binding.fabRequestContact.setOnClickListener{
+        }
     }
 
     override fun onDestroyView() {

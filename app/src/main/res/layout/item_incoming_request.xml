@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
+
+    <ImageView
+        android:id="@+id/userAvatar"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/userLogin"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/accept"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/userAvatar"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="@string/loginE"
+        android:textFontWeight="1000"
+        android:textSize="21sp" />
+
+    <Button
+        android:id="@+id/accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:gravity="end|center"
+        android:paddingEnd="8dp"
+        android:text="@string/Accepet"
+        android:textColor="@color/green"
+        android:textFontWeight="1000"
+        android:textSize="21sp" />
+
+    <Button
+        android:id="@+id/decline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/accept"
+        android:gravity="end|center"
+        android:paddingEnd="8dp"
+        android:text="@string/Decline"
+        android:textColor="@color/red"
+        android:textFontWeight="1000"
+        android:textSize="21sp" />
+
+    <View
+        android:id="@+id/viewInItemContact"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/accept"
+        android:layout_toEndOf="@id/userAvatar" />
+
+    <TextView
+        android:id="@+id/userLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewInItemContact"
+        android:layout_toEndOf="@id/userAvatar"
+        android:padding="8dp"
+        android:text="@string/username"
+        android:textFontWeight="1"
+        android:textSize="18sp" />
+
+</RelativeLayout>

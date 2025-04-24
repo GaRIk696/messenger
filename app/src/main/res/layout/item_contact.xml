@@ -10,7 +10,7 @@
     app:cardElevation="4dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp">
@@ -24,28 +24,41 @@
             android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="169dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                tools:text="Имя"/>
+                tools:text="Имя" />
 
             <TextView
                 android:id="@+id/txtLogin"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="14sp"
-                tools:text="Логин"/>
+                tools:text="Логин" />
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="8dp"
+            android:text="Add"
+            android:textColor="@color/green"
+            android:textSize="17dp" />
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -11,7 +11,7 @@ suspend fun <T> handleRequest(request: suspend () -> Response<T>): Response<T> {
             request.invoke()
         } catch (e: Exception) {
 
-            Response.error(499, e.message?.toResponseBody() ?: "Network error".toResponseBody())
+            Response.error(-1, e.message?.toResponseBody() ?: "Network error".toResponseBody())
         }
     }
 }

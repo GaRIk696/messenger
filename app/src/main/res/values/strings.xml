@@ -17,4 +17,6 @@
     <string name="ok">OK</string>
     <string name="user_avatar">User avatar</string>
     <string name="search_users">Search users…</string>
+    <string name="Decline">Отклонить</string>
+    <string name="Accepet">Принять</string>
 </resources>

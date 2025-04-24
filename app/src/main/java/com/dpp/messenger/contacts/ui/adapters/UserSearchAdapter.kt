@@ -3,6 +3,7 @@ package com.dpp.messenger.contacts.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.dpp.messenger.data.models.UserResponse
 import com.dpp.messenger.databinding.ItemContactBinding
 
@@ -37,7 +38,12 @@ class UserSearchAdapter(private val onClick: (UserResponse) -> Unit) :
 
         with(holder.binding) {
             txtName.text = filteredContacts[position].name
-//            txtLogin.text = contactResponses[position].login
+            txtLogin.text = filteredContacts[position].login
+
+            Glide.with(holder.itemView).load(contacts[position].avatar).into(userAvatar)
+            add.setOnClickListener {
+                onClick(contacts[position])
+            }
 
             root.setOnClickListener {
                 onClick(filteredContacts[position])

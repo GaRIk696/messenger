@@ -20,6 +20,16 @@
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts_incoming_requests.xml">
+        <config>
+          <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
+        <config>
+          <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml">
         <config>
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
@@ -35,6 +45,11 @@
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_incoming_request.xml">
+        <config>
+          <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
@@ -44,14 +59,17 @@
     <list default="true" id="ad39187b-8adf-4811-be28-9831f72bb828" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/ContactsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/ContactsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/IncomingRequestsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/IncomingRequestsAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/UserSearchAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/UserSearchAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/IncomingRequestsDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/IncomingRequestsDialogFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/UserSearchDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/UserSearchDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/UserSearchViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/UserSearchViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/models/UserResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/models/UserResponse.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/libs/NetworkUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/libs/NetworkUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_user_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_user_search.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,13 +89,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin Object" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -86,6 +108,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2uwB6u1xgADyHoqRui6YV4sEZNY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -115,9 +140,15 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/settings" />
     </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.dpp.messenger.contacts.ui.dialogs" />
+    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.dpp.messenger.settings.vievmodels" />
       <recent name="com.dpp.messenger.settings.models" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.dpp.messenger.contacts.ui.view_models" />
     </key>
   </component>
   <component name="RunManager">
@@ -210,12 +241,12 @@
       <map>
         <entry key="com.dpp.messenger">
           <value>
-            <CheckInfo lastCheckTimestamp="1744711127908" />
+            <CheckInfo lastCheckTimestamp="1745486750468" />
           </value>
         </entry>
         <entry key="com.dpp.messenger.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1744711127908" />
+            <CheckInfo lastCheckTimestamp="1745486750468" />
           </value>
         </entry>
         <entry key="com.messenger.messenger">
