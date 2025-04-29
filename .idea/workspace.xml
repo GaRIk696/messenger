@@ -20,7 +20,7 @@
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts_incoming_requests.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_incoming_requests.xml">
         <config>
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
@@ -45,7 +45,17 @@
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_incoming_request.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_request.xml">
+        <config>
+          <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_user.xml">
+        <config>
+          <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/navigation_graph.xml">
         <config>
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
@@ -58,19 +68,31 @@
   <component name="ChangeListManager">
     <list default="true" id="ad39187b-8adf-4811-be28-9831f72bb828" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/AuthFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/AuthPagerAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/LoginFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/RegisterFragment.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/ContactsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/ContactsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/ContactsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/ContactsAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/IncomingRequestsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/IncomingRequestsAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/UserSearchAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/UserSearchAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/IncomingRequestsDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/IncomingRequestsDialogFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/UserSearchDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/dialogs/UserSearchDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/ContactsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/ContactsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/IncomingRequestsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/IncomingRequestsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/UserSearchViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/view_models/UserSearchViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/ApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/models/UserResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/models/UserResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/models/ContactResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/data/models/ContactResponse.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/libs/NetworkUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/libs/NetworkUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_auth.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_auth.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts_incoming_requests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_incoming_requests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_contact.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_incoming_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/navigation_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/navigation_graph.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,29 +137,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/igorivanov/Documents/GitHub/messenger/app/src/main/java/com/dpp/messenger/settings&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.Kotlin&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "ResourceManagerPrefKey.ResourceType": "LAYOUT",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/igorivanov/Documents/GitHub/messenger/app/src/main/java/com/dpp/messenger/settings",
+    "project.structure.last.edited": "Dependencies",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.language.Kotlin"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/settings" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/settings" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
@@ -148,6 +172,8 @@
       <recent name="com.dpp.messenger.settings.models" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.dpp.messenger.auth.ui.fragments" />
+      <recent name="com.dpp.messenger.auth.ui.adapter" />
       <recent name="com.dpp.messenger.contacts.ui.view_models" />
     </key>
   </component>
@@ -236,17 +262,25 @@
     </task>
     <servers />
   </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.dpp.messenger.contacts.ui.view_models.ContactsViewModel" memberName="isLoading" />
+        <PinnedItemInfo parentTag="com.dpp.messenger.contacts.ui.view_models.ContactsViewModel" memberName="error" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.dpp.messenger">
           <value>
-            <CheckInfo lastCheckTimestamp="1745486750468" />
+            <CheckInfo lastCheckTimestamp="1745835818191" />
           </value>
         </entry>
         <entry key="com.dpp.messenger.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1745486750468" />
+            <CheckInfo lastCheckTimestamp="1745835818191" />
           </value>
         </entry>
         <entry key="com.messenger.messenger">

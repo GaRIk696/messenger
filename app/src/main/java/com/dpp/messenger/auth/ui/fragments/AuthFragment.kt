@@ -1,12 +1,14 @@
-package com.dpp.messenger.auth.ui
+package com.dpp.messenger.auth.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.dpp.messenger.auth.ui.adapter.AuthPagerAdapter
 import com.dpp.messenger.databinding.FragmentAuthBinding
 import com.google.android.material.tabs.TabLayoutMediator
+
 class AuthFragment : Fragment() {
     private var _binding: FragmentAuthBinding? = null
     private val binding get() = _binding!!

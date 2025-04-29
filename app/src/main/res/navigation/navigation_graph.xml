@@ -26,7 +26,14 @@
         android:id="@+id/contactsFragment"
         android:name="com.dpp.messenger.contacts.ui.ContactsFragment"
         android:label="fragment_contacts"
-        tools:layout="@layout/fragment_contacts" />
+        tools:layout="@layout/fragment_contacts" >
+        <action
+            android:id="@+id/action_contactsFragment_to_incomingRequestsDialogFragment"
+            app:destination="@id/incomingRequestsDialogFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_userSearchDialogFragment"
+            app:destination="@id/userSearchDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.dpp.messenger.settings.ui.SettingsFragment"
@@ -38,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.dpp.messenger.auth.ui.AuthFragment"
+        android:name="com.dpp.messenger.auth.ui.fragments.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" >
         <action
@@ -47,12 +54,20 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.dpp.messenger.auth.ui.RegisterFragment"
+        android:name="com.dpp.messenger.auth.ui.fragments.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.dpp.messenger.auth.ui.LoginFragment"
+        android:name="com.dpp.messenger.auth.ui.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <dialog
+        android:id="@+id/incomingRequestsDialogFragment"
+        android:name="com.dpp.messenger.contacts.ui.dialogs.IncomingRequestsDialogFragment"
+        android:label="IncomingRequestsDialogFragment" />
+    <dialog
+        android:id="@+id/userSearchDialogFragment"
+        android:name="com.dpp.messenger.contacts.ui.dialogs.UserSearchDialogFragment"
+        android:label="UserSearchDialogFragment" />
 </navigation>

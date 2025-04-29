@@ -1,4 +1,4 @@
-package com.dpp.messenger.auth.ui
+package com.dpp.messenger.auth.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.dpp.messenger.R
 import com.dpp.messenger.data.RetrofitClient
 import com.dpp.messenger.data.models.LoginResponse
@@ -16,6 +14,8 @@ import com.dpp.messenger.data.models.RegisterRequest
 import com.dpp.messenger.data.models.errors.err
 import com.dpp.messenger.databinding.FragmentRegisterBinding
 import com.dpp.messenger.libs.TokenManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,7 +42,13 @@ class RegisterFragment : Fragment() {
             binding.loginError.isVisible = false
             binding.passwordError.isVisible = false
             binding.nameError.isVisible = false
-            RetrofitClient.create(requireContext(), view).register(RegisterRequest(binding.Login.text.toString(), binding.Password.text.toString(), binding.Username.text.toString())).enqueue(
+            RetrofitClient.create(requireContext(), view).register(
+                RegisterRequest(
+                    binding.Login.text.toString(),
+                    binding.Password.text.toString(),
+                    binding.Username.text.toString()
+                )
+            ).enqueue(
                 object :
                     Callback<LoginResponse> {
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {

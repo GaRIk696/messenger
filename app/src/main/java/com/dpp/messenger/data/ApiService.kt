@@ -1,6 +1,10 @@
 package com.dpp.messenger.data
 
+import com.dpp.messenger.data.models.AcceptContactRequest
+import com.dpp.messenger.data.models.AddContactRequest
+import com.dpp.messenger.data.models.ContactRequest
 import com.dpp.messenger.data.models.ContactResponse
+import com.dpp.messenger.data.models.DeclineContactRequest
 import com.dpp.messenger.data.models.LoginRequest
 import com.dpp.messenger.data.models.LoginResponse
 import com.dpp.messenger.data.models.RegisterRequest
@@ -32,11 +36,28 @@ interface ApiService {
     @GET("contacts")
     suspend fun getContacts(): Response<List<ContactResponse>>
 
+    @GET("/contacts/in_requests")
+    suspend fun getIncomingRequests(): Response<List<ContactRequest>>
+
+    @GET("/contacts/out_requests")
+    suspend fun getOutgoingRequests(): Response<List<ContactRequest>>
+
+    @POST("/contacts/accept")
+    suspend fun acceptContactRequest(@Body request: AcceptContactRequest): Response<Unit>
+
+    @POST("/contacts/decline")
+    suspend fun declineContactRequest(@Body request: DeclineContactRequest)
+
+    @POST("/contacts/add")
+    suspend fun addContact(@Body request: AddContactRequest): Response<Unit>
+
     @GET("/users/search")
-    suspend fun userSearch(@Query("search") search: String): Response<List<UserResponse>>
+    suspend fun userSearch(
+        @Query("search") search: String,
+        @Query("limit") limit: Int
+    ): Response<List<UserResponse>>
 
     @Multipart
     @PATCH("/users/update/avatar")
     suspend fun updateAvatar(@Part file: MultipartBody.Part): Response<String>
-
 }

@@ -7,7 +7,7 @@
     tools:context=".contacts.ui.ContactsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_search_results"
+        android:id="@+id/incomingRequestsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -15,6 +15,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="7"
-        tools:listitem="@layout/item_incoming_request" />
+        tools:listitem="@layout/item_request" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

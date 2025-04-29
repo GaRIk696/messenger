@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,9 +42,10 @@ class UserSearchDialogFragment : DialogFragment() {
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT)
 
-        adapter = UserSearchAdapter(
-            onClick = { contact -> }
-        )
+        adapter = UserSearchAdapter { user ->
+            viewModel.addContact(user.id)
+            Toast.makeText(requireContext(), "Запрос отправлен", Toast.LENGTH_SHORT).show()
+        }
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
@@ -63,9 +65,5 @@ class UserSearchDialogFragment : DialogFragment() {
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
 
         }
-
-
-
     }
-
 }

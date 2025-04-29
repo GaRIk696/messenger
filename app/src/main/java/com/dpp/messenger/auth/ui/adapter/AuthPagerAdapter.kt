@@ -1,7 +1,9 @@
-package com.dpp.messenger.auth.ui
+package com.dpp.messenger.auth.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.dpp.messenger.auth.ui.fragments.LoginFragment
+import com.dpp.messenger.auth.ui.fragments.RegisterFragment
 
 class AuthPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = 2

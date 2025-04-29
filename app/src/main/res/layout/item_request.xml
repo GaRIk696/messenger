@@ -6,7 +6,7 @@
     android:layout_marginBottom="8dp">
 
     <ImageView
-        android:id="@+id/userAvatar"
+        android:id="@+id/incomingRequestsAvatar"
         android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/userLogin"
@@ -15,12 +15,12 @@
         android:scaleType="centerCrop" />
 
     <TextView
-        android:id="@+id/userName"
+        android:id="@+id/sName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/accept"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@id/userAvatar"
+        android:layout_toEndOf="@id/incomingRequestsAvatar"
         android:gravity="center_vertical"
         android:padding="8dp"
         android:text="@string/loginE"
@@ -56,14 +56,14 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/accept"
-        android:layout_toEndOf="@id/userAvatar" />
+        android:layout_toEndOf="@id/incomingRequestsAvatar" />
 
     <TextView
         android:id="@+id/userLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/viewInItemContact"
-        android:layout_toEndOf="@id/userAvatar"
+        android:layout_toEndOf="@id/incomingRequestsAvatar"
         android:padding="8dp"
         android:text="@string/username"
         android:textFontWeight="1"

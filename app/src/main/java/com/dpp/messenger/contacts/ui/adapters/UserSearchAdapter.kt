@@ -44,10 +44,6 @@ class UserSearchAdapter(private val onClick: (UserResponse) -> Unit) :
             add.setOnClickListener {
                 onClick(contacts[position])
             }
-
-            root.setOnClickListener {
-                onClick(filteredContacts[position])
-            }
         }
     }
 

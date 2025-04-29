@@ -9,34 +9,33 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.dpp.messenger.data.ApiService
 import com.dpp.messenger.data.models.ContactResponse
-import com.dpp.messenger.libs.handleRequest
 import kotlinx.coroutines.launch
 
 class ContactsViewModel(private val apiService: ApiService) : ViewModel() {
 
     private val _contacts = MutableLiveData<List<ContactResponse>>()
-    val contacts: LiveData<List<ContactResponse>> get() = _contacts
+    val contacts: LiveData<List<ContactResponse>> = _contacts
 
-    init {
-        updateContacts()
-    }
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean> = _isLoading
 
-    fun updateContacts() {
+    private val _error = MutableLiveData<String?>(null)
+    val error: LiveData<String?> = _error
+
+    fun loadContacts() {
         viewModelScope.launch {
-            val response = handleRequest {
-                apiService.getContacts()
-            }
-
-            when (response.code()) {
-                200 -> {
-                    response.body()?.let {
-                        _contacts.value = it
-                    }
+            _isLoading.value = true
+            try {
+                val response = apiService.getContacts()
+                if (response.isSuccessful) {
+                    _contacts.value = response.body()
+                } else {
+                    _error.value = "Error: ${response.code()}"
                 }
-
-                -1 -> {
-
-                }
+            } catch (e: Exception) {
+                _error.value = "Network error: ${e.message}"
+            } finally {
+                _isLoading.value = false
             }
         }
     }
@@ -45,9 +44,7 @@ class ContactsViewModel(private val apiService: ApiService) : ViewModel() {
         fun getViewModelFactory(apiService: ApiService): ViewModelProvider.Factory =
             viewModelFactory {
                 initializer {
-                    ContactsViewModel(
-                        apiService = apiService
-                    )
+                    ContactsViewModel(apiService)
                 }
             }
     }

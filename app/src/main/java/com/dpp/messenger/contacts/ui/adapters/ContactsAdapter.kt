@@ -5,13 +5,14 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.dpp.messenger.data.models.ContactResponse
-import com.dpp.messenger.databinding.ItemContactBinding
+import com.dpp.messenger.databinding.ItemUserBinding
 
 class ContactsAdapter(private val onClick: (ContactResponse) -> Unit) :
     RecyclerView.Adapter<ContactsAdapter.ViewHolder>(), Filterable {
 
-    inner class ViewHolder(val binding: ItemContactBinding) :
+    inner class ViewHolder(val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     private val contacts = mutableListOf<ContactResponse>()
@@ -24,29 +25,31 @@ class ContactsAdapter(private val onClick: (ContactResponse) -> Unit) :
         filteredContacts.addAll(newContacts)
         notifyDataSetChanged()
     }
-    private val contactResponses = mutableListOf<ContactResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val binding = ItemContactBinding.inflate(
+        val binding = ItemUserBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
         return ViewHolder(binding)
     }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         with(holder.binding) {
-            txtName.text = contactResponses[position].name
-            txtLogin.text = contactResponses[position].login
+            txtName.text = filteredContacts[position].name
+            txtLogin.text = filteredContacts[position].login
+            Glide.with(holder.itemView).load(filteredContacts[position].avatar).into(userAvatar)
 
             root.setOnClickListener {
-                onClick(contactResponses[position])
+                onClick(filteredContacts[position])
             }
         }
     }
-    override fun getItemCount() = contactResponses.size
+
+    override fun getItemCount() = filteredContacts.size
     override fun getFilter() = object : Filter() {
         override fun performFiltering(constraint: CharSequence?): FilterResults {
             val results = FilterResults()
@@ -66,6 +69,7 @@ class ContactsAdapter(private val onClick: (ContactResponse) -> Unit) :
             results.count = filtered.size
             return results
         }
+
         override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
             filteredContacts = results?.values as? MutableList<ContactResponse> ?: mutableListOf()
             notifyDataSetChanged()
