@@ -6,15 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dpp.messenger.R
 import com.dpp.messenger.contacts.ui.adapters.ContactsAdapter
+import com.dpp.messenger.contacts.ui.models.ContactsScreenState
 import com.dpp.messenger.contacts.ui.view_models.ContactsViewModel
 import com.dpp.messenger.data.RetrofitClient
 import com.dpp.messenger.databinding.FragmentContactsBinding
+import com.dpp.messenger.libs.throttleFirst
 
 class ContactsFragment : Fragment() {
     private var _binding: FragmentContactsBinding? = null
@@ -51,11 +55,21 @@ class ContactsFragment : Fragment() {
         }
 
         binding.fabRequestContact.setOnClickListener {
-            findNavController().navigate(R.id.action_contactsFragment_to_incomingRequestsDialogFragment)
+            navigate("in")
         }
 
         binding.fabAddContact.setOnClickListener {
-            findNavController().navigate(R.id.action_contactsFragment_to_userSearchDialogFragment)
+            navigate("user")        }
+    }
+
+    val navigate: (String) -> Unit = throttleFirst(300L, lifecycleScope) { query ->
+        onNavigate(query)
+    }
+
+    private fun onNavigate(query: String) {
+        when (query) {
+            "in" -> findNavController().navigate(R.id.action_contactsFragment_to_incomingRequestsDialogFragment)
+            "user" -> findNavController().navigate(R.id.action_contactsFragment_to_userSearchDialogFragment)
         }
     }
 
@@ -82,5 +96,35 @@ class ContactsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun render(state: ContactsScreenState) {
+        when (state) {
+            is ContactsScreenState.Loading -> showLoading(state)
+            is ContactsScreenState.Content -> showContent(state)
+            is ContactsScreenState.Error -> showError(state)
+        }
+    }
+
+    private fun hideAll() {
+        binding.overlay.isVisible = false
+        binding.progressBar.isVisible = false
+        binding.rvSearchResults.isVisible = false
+    }
+
+    private fun showLoading(state: ContactsScreenState.Loading) {
+        hideAll()
+        binding.overlay.isVisible = true
+        binding.progressBar.isVisible = true
+    }
+
+    private fun showContent(state: ContactsScreenState.Content) {
+        hideAll()
+        binding.rvSearchResults.isVisible = true
+        contactsAdapter.setContacts(state.contacts)
+    }
+
+    private fun showError(state: ContactsScreenState.Error) {
+        hideAll()
     }
 }

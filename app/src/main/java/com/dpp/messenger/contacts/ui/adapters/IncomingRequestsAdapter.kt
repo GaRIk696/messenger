@@ -25,7 +25,7 @@ class IncomingRequestsAdapter(
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val senderName: TextView = itemView.findViewById(R.id.sName)
+        private val senderName: TextView = itemView.findViewById(R.id.txtName)
         private val acceptButton: Button = itemView.findViewById(R.id.accept)
         private val declineButton: Button = itemView.findViewById(R.id.decline)
         private val contactAvatar: ImageView = itemView.findViewById(R.id.incomingRequestsAvatar)

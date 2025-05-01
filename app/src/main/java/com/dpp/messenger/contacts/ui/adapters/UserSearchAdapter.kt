@@ -40,7 +40,7 @@ class UserSearchAdapter(private val onClick: (UserResponse) -> Unit) :
             txtName.text = filteredContacts[position].name
             txtLogin.text = filteredContacts[position].login
 
-            Glide.with(holder.itemView).load(contacts[position].avatar).into(userAvatar)
+            Glide.with(holder.itemView).load(contacts[position].avatar).into(contactAvatar)
             add.setOnClickListener {
                 onClick(contacts[position])
             }
