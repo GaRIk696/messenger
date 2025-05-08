@@ -10,11 +10,6 @@
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_user_search.xml">
-        <config>
-          <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_auth.xml">
         <config>
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
@@ -55,6 +50,11 @@
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_user_search.xml">
+        <config>
+          <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_contact.xml">
         <config>
           <theme>@style/Theme.Material3.DayNight.NoActionBar</theme>
@@ -83,18 +83,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ad39187b-8adf-4811-be28-9831f72bb828" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/fragments/LoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/fragments/LoginFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/fragments/RegisterFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/auth/ui/fragments/RegisterFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/ContactsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/ContactsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/IncomingRequestsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/IncomingRequestsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/UserSearchAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dpp/messenger/contacts/ui/adapters/UserSearchAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_user_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_user_search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_user_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_user_search.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_contact.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,12 +268,12 @@
       <map>
         <entry key="com.dpp.messenger">
           <value>
-            <CheckInfo lastCheckTimestamp="1746109905877" />
+            <CheckInfo lastCheckTimestamp="1746710547789" />
           </value>
         </entry>
         <entry key="com.dpp.messenger.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1746109905877" />
+            <CheckInfo lastCheckTimestamp="1746710547789" />
           </value>
         </entry>
         <entry key="com.messenger.messenger">

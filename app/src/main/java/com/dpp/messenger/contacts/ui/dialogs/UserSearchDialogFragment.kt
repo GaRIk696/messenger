@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dpp.messenger.contacts.ui.adapters.UserSearchAdapter
 import com.dpp.messenger.contacts.ui.view_models.UserSearchViewModel
 import com.dpp.messenger.data.RetrofitClient
-import com.dpp.messenger.databinding.DialogUserSearchBinding
+import com.dpp.messenger.databinding.FragmentUserSearchBinding
 
 class UserSearchDialogFragment : DialogFragment() {
 
@@ -24,7 +24,7 @@ class UserSearchDialogFragment : DialogFragment() {
         UserSearchViewModel.getViewModelFactory(apiService)
     }
 
-    private lateinit var binding: DialogUserSearchBinding
+    private lateinit var binding: FragmentUserSearchBinding
     private lateinit var adapter: UserSearchAdapter
 
     override fun onCreateView(
@@ -32,7 +32,7 @@ class UserSearchDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DialogUserSearchBinding.inflate(inflater, container, false)
+        binding = FragmentUserSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 
